@@ -41,6 +41,20 @@ function selectElementText(el, win) {
     }
 }
 $(document).ready(function() {
+    $("img").click(function() {
+        const overlay = `<div id="myNav" style="width:100%" class="overlay"><a href="javascript:void(0)" class="closebtn" onclick="document.getElementById('myNav').remove();">&times;</a><div class="overlay-content"><img src="${$(this)[0].src}" alt="test" /></div></div>`;
+        if (window.location !== window.parent.location) {
+            parent.$("body").append(overlay);
+        }
+        else {
+            $("body").append(overlay);
+        }
+    });
+
+    $("img").hover(function() {
+        $(this).css('cursor','pointer');
+    });
+
     $('section.page-content a').each(function() {
         function normalize(path){
             path = Array.prototype.join.apply(arguments,['/'])

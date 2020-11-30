@@ -20,6 +20,7 @@ RUN HOME=/opt/workshop/renderer && \
     npm install --production
 
 COPY gateway/. /opt/workshop/gateway/.
+COPY renderer/static/css/image-overlay.css /opt/workshop/gateway/static/css/image-overlay.css
 
 COPY bin/. /opt/workshop/bin/.
 COPY etc/. /opt/workshop/etc/.
